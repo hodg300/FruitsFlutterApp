@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
           title: ClipRRect(
               borderRadius: BorderRadius.circular(50),
               child: Image.asset(
-                "images/ono_apps_icon.png",
+                "assets/icon/icon.png",
                 height: 100,
                 width: 100,
               )),
