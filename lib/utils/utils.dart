@@ -11,7 +11,6 @@ class Utils {
   static bool get isInDebugMode {
     if (_isInDebugMode == null) {
       _isInDebugMode = false;
-      // From: https://stackoverflow.com/questions/49707028/check-if-running-app-is-in-debug-mode
       assert(_isInDebugMode = true); // Because assert runs only in debug mode.
     }
 
@@ -29,10 +28,12 @@ class Utils {
     return MediaQuery.of(context).size.height;
   }
 
+  /// Set TextStyle
   static TextStyle setTextStyle({required Color color, required double fontSize, FontWeight fontWeight = FontWeight.normal}) {
     return GoogleFonts.poppins(color: color, fontSize: fontSize, fontWeight: fontWeight);
   }
 
+  /// Create ILS currency symbol
   static String currency(BuildContext context) {
     Locale locale = Localizations.localeOf(context);
     var format = NumberFormat.simpleCurrency(locale: locale.toString(), name: "ILS");

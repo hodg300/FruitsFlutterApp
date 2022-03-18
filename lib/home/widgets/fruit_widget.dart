@@ -1,8 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fruitsapp/home/models/fruit_model.dart';
-import 'package:google_fonts/google_fonts.dart';
-
 import '../../utils/constants.dart';
 import '../../utils/utils.dart';
 
@@ -25,10 +23,10 @@ class FruitWidget extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         width: width,
-        decoration:  BoxDecoration(
+        decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(12)),
-            border:
-                const Border.fromBorderSide(BorderSide(width: 1.5, color: Colors.grey)),
+            border: const Border.fromBorderSide(
+                BorderSide(width: 1.5, color: Colors.grey)),
             boxShadow: [
               BoxShadow(
                   color: Colors.grey.withOpacity(0.35),
@@ -40,9 +38,7 @@ class FruitWidget extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () => onTap(),
           style: ElevatedButton.styleFrom(
-            primary: Colors.transparent,
-            padding: EdgeInsets.zero
-          ),
+              primary: Colors.transparent, padding: EdgeInsets.zero),
           child: Row(
             children: [
               Expanded(
@@ -72,16 +68,18 @@ class FruitWidget extends StatelessWidget {
                 child: SizedBox(
                   height: height,
                   child: ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                        topRight: Radius.circular(10),
-                        bottomRight: Radius.circular(10)),
-                    child: Center(
-                      child: Text(
-                        fruitModel.name,
-                        style: Utils.setTextStyle(color: secondaryColor, fontSize: 23, fontWeight: FontWeight.w600),
-                      ),
-                    )
-                  ),
+                      borderRadius: const BorderRadius.only(
+                          topRight: Radius.circular(10),
+                          bottomRight: Radius.circular(10)),
+                      child: Center(
+                        child: Text(
+                          fruitModel.name,
+                          style: Utils.setTextStyle(
+                              color: secondaryColor,
+                              fontSize: 23,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      )),
                 ),
               ),
             ],
