@@ -41,63 +41,70 @@ class _DetailsScreenState extends State<DetailsScreen> {
             ),
           ),
         ),
-        body: Column(
+        body: Stack(
           children: [
-            Expanded(
-              child: Stack(
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: Utils.screenHeightSize(context) * 0.1),
+              child: Row(
                 children: [
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Container(
-                        color: primaryColor,
-                        height: Utils.screenHeightSize(context) * 0.2),
+                  Container(
+                    height: double.infinity,
+                    width: Utils.screenWidthSize(context) * 0.5,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: secondaryColor, width: 0),
+                      color: secondaryColor,
+                    ),
                   ),
                   Container(
-                      decoration: const BoxDecoration(
-                          color: secondaryColor,
-                          borderRadius: BorderRadius.only(
-                              bottomRight: Radius.circular(88)))),
-                  Center(
-                      child: CircleImageWidget(
-                    image: widget.fruitModel.image,
-                    size: Utils.screenHeightSize(context) * 0.3,
-                  ))
+                    height: double.infinity,
+                    width: Utils.screenWidthSize(context) * 0.5,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: primaryColor, width: 0),
+                      color: primaryColor,
+                    ),
+                  ),
                 ],
               ),
             ),
-            SizedBox(
-              height: Utils.screenHeightSize(context) * 0.5,
-              child: Stack(
-                children: [
-                  Container(color: secondaryColor),
-                  Container(
-                      decoration: const BoxDecoration(
-                          color: primaryColor,
-                          borderRadius:
-                              BorderRadius.only(topLeft: Radius.circular(88)))),
-                  DetailsWidget(fruitModel: widget.fruitModel)
-                ],
-              ),
-            ),
+            Column(
+              children: [
+                Expanded(
+                  child: Stack(
+                    children: [
+                      Container(
+                          decoration: BoxDecoration(
+                              color: secondaryColor,
+                              // border: Border.all(color: Colors.transparent, width: 0),
+                              borderRadius: BorderRadius.only(
+                                  bottomRight: Radius.circular(150)))),
+                      Center(
+                          child: CircleImageWidget(
+                            image: widget.fruitModel.image,
+                            size: Utils.screenHeightSize(context) * 0.3,
+                          ))
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: Utils.screenHeightSize(context) * 0.5,
+                  child: Stack(
+                    children: [
+                      Container(
+                          decoration: BoxDecoration(
+                              color: primaryColor,
+                              // border: Border.all(color: Colors.black, width: 0),
+                              borderRadius:
+                              BorderRadius.only(topLeft: Radius.circular(150)))),
+                      DetailsWidget(fruitModel: widget.fruitModel)
+                    ],
+                  ),
+                ),
+              ],
+            )
           ],
-        ));
+        ),
+
+    );
   }
 }
 
-class MyClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    var path = Path();
-    path.lineTo(0, size.height / 8);
-    path.cubicTo(size.width / 4, 3 * (size.height / 3), 3 * (size.width / 4),
-        size.height / 8, size.width, size.height);
-    path.lineTo(size.width, 0);
-
-    return path;
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
-    return true;
-  }
-}
