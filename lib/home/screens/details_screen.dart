@@ -41,18 +41,20 @@ class _DetailsScreenState extends State<DetailsScreen> {
             ),
           ),
         ),
-        body: Stack(
+        body: Stack( // Set corner
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(vertical: Utils.screenHeightSize(context) * 0.1),
+              padding: EdgeInsets.symmetric(vertical: Utils.screenHeightSize(context) * 0.05),
               child: Row(
                 children: [
-                  Container(
-                    height: double.infinity,
-                    width: Utils.screenWidthSize(context) * 0.5,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: secondaryColor, width: 0),
-                      color: secondaryColor,
+                  Expanded(
+                    child: Container(
+                      height: double.infinity,
+                      // width: Utils.screenWidthSize(context) * 0.5,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: secondaryColor, width: 0),
+                        color: secondaryColor,
+                      ),
                     ),
                   ),
                   Container(
@@ -66,7 +68,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 ],
               ),
             ),
-            Column(
+            Column( // Create two containers to display image and details
               children: [
                 Expanded(
                   child: Stack(
@@ -85,18 +87,20 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: Utils.screenHeightSize(context) * 0.5,
-                  child: Stack(
-                    children: [
-                      Container(
-                          decoration: BoxDecoration(
-                              color: primaryColor,
-                              // border: Border.all(color: Colors.black, width: 0),
-                              borderRadius:
-                              BorderRadius.only(topLeft: Radius.circular(150)))),
-                      DetailsWidget(fruitModel: widget.fruitModel)
-                    ],
+                SingleChildScrollView(
+                  child: SizedBox(
+                    height: Utils.screenHeightSize(context) * 0.5,
+                    child: Stack(
+                      children: [
+                        Container(
+                            decoration: BoxDecoration(
+                                color: primaryColor,
+                                // border: Border.all(color: Colors.black, width: 0),
+                                borderRadius:
+                                BorderRadius.only(topLeft: Radius.circular(150)))),
+                        DetailsWidget(fruitModel: widget.fruitModel)
+                      ],
+                    ),
                   ),
                 ),
               ],

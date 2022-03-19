@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fruitsapp/home/models/fruit_model.dart';
 import '../../utils/constants.dart';
 import '../../utils/utils.dart';
@@ -45,24 +46,22 @@ class FruitWidget extends StatelessWidget {
                 flex: 6,
                 child: SizedBox(
                   height: height,
+                  width: height,
                   child: ClipRRect(
                     borderRadius: const BorderRadius.all(Radius.circular(10)),
                     child: CachedNetworkImage(
                       imageUrl: fruitModel.image,
-                      fit: BoxFit.fill,
+                      fit: BoxFit.cover,
                       progressIndicatorBuilder:
                           (context, url, downloadProgress) =>
-                              CircularProgressIndicator(
-                        value: downloadProgress.progress,
+                              SpinKitWave(
+                                size: 20,
                         color: secondaryColor,
                       ),
                     ),
                   ),
                 ),
               ),
-              // const Spacer(
-              //   flex: 1,
-              // ),
               Expanded(
                 flex: 14,
                 child: SizedBox(

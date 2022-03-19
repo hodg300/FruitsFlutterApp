@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
+import 'constants.dart';
+
 class Utils {
   static bool? _isInDebugMode;
 
@@ -30,7 +32,7 @@ class Utils {
 
   /// Set TextStyle
   static TextStyle setTextStyle({required Color color, required double fontSize, FontWeight fontWeight = FontWeight.normal}) {
-    return GoogleFonts.poppins(color: color, fontSize: fontSize, fontWeight: fontWeight);
+    return TextStyle(color: color, fontSize: fontSize, fontWeight: fontWeight, fontFamily: FONT_FAMILY);
   }
 
   /// Create ILS currency symbol

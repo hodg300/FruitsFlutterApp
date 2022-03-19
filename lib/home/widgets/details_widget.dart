@@ -25,13 +25,13 @@ class DetailsWidget extends StatelessWidget {
                 fontSize: 35,
                 fontWeight: FontWeight.bold),
           ),
-          const Divider(
+          Divider(
             color: Colors.grey,
-            height: 20,
+            height: Utils.screenHeightSize(context) * 0.02,
             thickness: 1,
           ),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: Utils.screenHeightSize(context) * 0.02,
           ),
           Text(
             fruitModel.description,
@@ -40,8 +40,8 @@ class DetailsWidget extends StatelessWidget {
                 fontSize: 22,
                 fontWeight: FontWeight.bold),
           ),
-          const SizedBox(
-            height: 50,
+          SizedBox(
+            height: Utils.screenHeightSize(context) * 0.04,
           ),
           Text(
             "Price: ${fruitModel.price.toString()}${Utils.currency(context)}",
